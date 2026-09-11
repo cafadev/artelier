@@ -5,6 +5,8 @@ papelería especializada y decoración de eventos), implementado desde el diseñ
 en HTML, CSS y JavaScript vanilla. **No tiene backend**: el estado vive en memoria y se
 reinicia al recargar la página.
 
+**Demo:** <https://cafadev.github.io/artelier/>
+
 ## Cómo verlo
 
 ```bash
