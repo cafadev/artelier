@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fdf7f4">
+<title>Artelier — Crea · Diseña · Celebra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Parisienne&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ Sprite de iconos ============ -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <defs>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20.5 20.5 16.5 16.5"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9.5" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/><path d="M2.5 3h2.2l2.3 11.3a1.6 1.6 0 0 0 1.6 1.3h8.5a1.6 1.6 0 0 0 1.6-1.3L20.5 7H6"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-graduation" viewBox="0 0 24 24"><path d="M2 8.5 12 4l10 4.5-10 4.5z"/><path d="M6.5 11v4.6c0 1.4 2.5 2.4 5.5 2.4s5.5-1 5.5-2.4V11"/><path d="M21.5 9v5"/></symbol>
+    <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.6"/><circle cx="6" cy="18" r="2.6"/><path d="M20 4 8.3 15.7M14.6 14.6 20 20M8.3 8.3 12 12"/></symbol>
+    <symbol id="i-gift" viewBox="0 0 24 24"><path d="M20 12v9H4v-9"/><path d="M2.5 7.5h19V12h-19z"/><path d="M12 21V7.5"/><path d="M12 7.5H7.8a2.4 2.4 0 1 1 0-4.8C11 2.7 12 7.5 12 7.5z"/><path d="M12 7.5h4.2a2.4 2.4 0 1 0 0-4.8C13 2.7 12 7.5 12 7.5z"/></symbol>
+    <symbol id="i-notebook" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M9 7h7M9 11h7"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M4.5 7.5h15L18.5 21h-13z"/><path d="M8.5 10V6.5a3.5 3.5 0 0 1 7 0V10"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.6 5.7a4.9 4.9 0 0 0-7 0L12 7.4l-1.6-1.7a4.9 4.9 0 1 0-7 7L12 21.4l8.6-8.7a4.9 4.9 0 0 0 0-7z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.5l6.6-.9z"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3.5 6h17M9 6V3.5h6V6M6 6l1 14.5h10L18 6M10 10.5v6M14 10.5v6"/></symbol>
+    <symbol id="i-more-vertical" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.2 8-6.2s8 2.2 8 6.2"/></symbol>
+    <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M12 22s7.2-6.2 7.2-11a7.2 7.2 0 1 0-14.4 0C4.8 15.8 12 22 12 22z"/><circle cx="12" cy="11" r="2.6"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="M2.5 10h19M6 15h4"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.4l3.4 2"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18.5 16.5V11a6.5 6.5 0 1 0-13 0v5.5L3.5 19.5h17z"/><path d="M10 21.5a2.2 2.2 0 0 0 4 0"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24"><path d="M15 3.5h3.5a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H15"/><path d="M9.5 16.5 5 12l4.5-4.5M16 12H5"/></symbol>
+    <symbol id="i-pencil" viewBox="0 0 24 24"><path d="M4 20l4.6-1.2L20 7.4a2 2 0 0 0 0-2.8l-.6-.6a2 2 0 0 0-2.8 0L5.2 15.4z"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.6 12 3.2l9 7.4V21H3z"/><path d="M9.4 21v-6.2h5.2V21"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/></symbol>
+    <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M5.5 2.5h13v19l-3.25-2-3.25 2-3.25-2-3.25 2z"/><path d="M9 8h6M9 12h6"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5"/><circle cx="12" cy="7.8" r=".9" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M5.5 5.5 18.5 18.5M18.5 5.5 5.5 18.5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></symbol>
+  </defs>
+</svg>
+
+<div class="phone" id="phone">
+
+  <!-- ============ 1 · Inicio ============ -->
+  <section class="screen is-active" id="screen-inicio" data-tab="inicio">
+    <header class="app-header">
+      <button class="icon-btn" id="btn-menu" aria-label="Abrir menú"><svg class="ico ico-22"><use href="#i-menu"/></svg></button>
+      <div class="brand">
+        <span class="wordmark">Artelier</span>
+        <span class="tagline">Crea · Diseña · Celebra</span>
+      </div>
+      <button class="icon-btn cart-btn" data-go="carrito" aria-label="Ver carrito">
+        <svg class="ico ico-22"><use href="#i-cart"/></svg>
+        <span class="badge" data-cart-badge hidden>0</span>
+      </button>
+    </header>
+
+    <div class="scroll">
+      <div class="search-row">
+        <label class="search">
+          <svg class="ico ico-15"><use href="#i-search"/></svg>
+          <input type="search" id="search-input" placeholder="Buscar productos o servicios..." autocomplete="off">
+        </label>
+      </div>
+
+      <div class="hero-wrap">
+        <div class="hero" id="hero">
+          <div class="hero-copy">
+            <h1 class="hero-title"></h1>
+            <p class="hero-sub"></p>
+            <button class="btn-pill" data-hero-cta>Ver más</button>
+          </div>
+          <div class="hero-photo photo"><svg class="ico ico-40"><use href="#i-gift"/></svg></div>
+        </div>
+        <div class="dots" id="hero-dots"></div>
+      </div>
+
+      <section class="block">
+        <div class="section-head">
+          <h2>Categorías</h2>
+          <button class="link" data-go="productos">Ver todas <svg class="ico ico-11"><use href="#i-chevron-right"/></svg></button>
+        </div>
+        <div class="cat-row" id="cat-row"></div>
+      </section>
+
+      <section class="block">
+        <div class="section-head">
+          <h2>Productos destacados</h2>
+          <button class="link" data-go="productos">Ver todos <svg class="ico ico-11"><use href="#i-chevron-right"/></svg></button>
+        </div>
+        <div class="prod-row" id="prod-row"></div>
+      </section>
+    </div>
+  </section>
+
+  <!-- ============ 1b · Catálogo (Ver todos) ============ -->
+  <section class="screen" id="screen-productos" data-tab="productos">
+    <header class="nav-header">
+      <button class="icon-btn" data-back aria-label="Volver"><svg class="ico ico-20"><use href="#i-chevron-left"/></svg></button>
+      <h2 class="nav-title">Productos</h2>
+      <button class="icon-btn cart-btn" data-go="carrito" aria-label="Ver carrito">
+        <svg class="ico ico-20"><use href="#i-cart"/></svg>
+        <span class="badge" data-cart-badge hidden>0</span>
+      </button>
+    </header>
+    <div class="scroll">
+      <div class="search-row">
+        <label class="search">
+          <svg class="ico ico-15"><use href="#i-search"/></svg>
+          <input type="search" id="catalog-search" placeholder="Buscar productos o servicios..." autocomplete="off">
+        </label>
+      </div>
+      <div class="chips-row" id="catalog-chips"></div>
+      <div class="catalog-grid" id="catalog-grid"></div>
+      <p class="empty" id="catalog-empty" hidden>No encontramos resultados. Probá con otra palabra.</p>
+    </div>
+  </section>
+
+  <!-- ============ 2 · Producto ============ -->
+  <section class="screen" id="screen-producto">
+    <header class="nav-header">
+      <button class="icon-btn" data-back aria-label="Volver"><svg class="ico ico-20"><use href="#i-chevron-left"/></svg></button>
+      <h2 class="nav-title">Producto</h2>
+      <button class="icon-btn" id="btn-fav" aria-label="Guardar en favoritos" aria-pressed="false"><svg class="ico ico-20"><use href="#i-heart"/></svg></button>
+    </header>
+    <div class="scroll" id="product-scroll">
+      <div class="gallery">
+        <div class="photo gallery-photo" id="gallery-photo"><svg class="ico ico-64"><use href="#i-graduation"/></svg></div>
+        <div class="dots" id="gallery-dots"></div>
+      </div>
+
+      <div class="info">
+        <h1 class="product-title" id="product-title"></h1>
+        <p class="product-price" id="product-price"></p>
+        <div class="rating">
+          <span class="stars" id="product-stars"></span>
+          <span class="rating-count" id="product-reviews"></span>
+        </div>
+        <p class="product-desc" id="product-desc"></p>
+      </div>
+
+      <div class="field">
+        <h3 class="field-label">Tamaño</h3>
+        <div class="sizes" id="product-sizes"></div>
+      </div>
+
+      <div class="field row-between">
+        <h3 class="field-label">Cantidad</h3>
+        <div class="stepper stepper-lg">
+          <button class="step" data-qty="-1" aria-label="Quitar uno"><svg class="ico ico-14"><use href="#i-minus"/></svg></button>
+          <span id="product-qty">1</span>
+          <button class="step" data-qty="1" aria-label="Agregar uno"><svg class="ico ico-14"><use href="#i-plus"/></svg></button>
+        </div>
+      </div>
+
+      <button class="btn-primary" id="btn-add">
+        <svg class="ico ico-17"><use href="#i-cart"/></svg> Agregar al carrito
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ 3 · Mi carrito ============ -->
+  <section class="screen" id="screen-carrito" data-tab="carrito">
+    <header class="nav-header">
+      <button class="icon-btn" data-back aria-label="Volver"><svg class="ico ico-20"><use href="#i-chevron-left"/></svg></button>
+      <h2 class="nav-title">Mi carrito</h2>
+      <button class="icon-btn" id="btn-clear-cart" aria-label="Vaciar carrito"><svg class="ico ico-19"><use href="#i-trash"/></svg></button>
+    </header>
+    <div class="scroll">
+      <div id="cart-items"></div>
+      <p class="empty" id="cart-empty" hidden>Tu carrito está vacío.<br>Explorá los productos destacados para empezar.</p>
+      <div id="cart-footer" hidden>
+        <div class="summary">
+          <div class="sum-row"><span>Subtotal</span><span id="sum-subtotal">L.0.00</span></div>
+          <div class="sum-row"><span>Envío</span><span id="sum-shipping">L.50.00</span></div>
+          <hr>
+          <div class="sum-row sum-total"><span>Total</span><strong id="sum-total">L.0.00</strong></div>
+        </div>
+        <button class="btn-primary" id="btn-checkout">Finalizar pedido <svg class="ico ico-16"><use href="#i-arrow-right"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4 · Mis pedidos ============ -->
+  <section class="screen" id="screen-pedidos" data-tab="pedidos">
+    <header class="nav-header">
+      <button class="icon-btn" data-back aria-label="Volver"><svg class="ico ico-20"><use href="#i-chevron-left"/></svg></button>
+      <h2 class="nav-title">Mis pedidos</h2>
+      <span class="icon-btn" aria-hidden="true"></span>
+    </header>
+    <div class="scroll">
+      <div id="order-list"></div>
+      <div class="cta-wrap">
+        <button class="btn-outline" id="btn-all-orders">Ver todos mis pedidos</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5 · Mi perfil ============ -->
+  <section class="screen" id="screen-perfil" data-tab="perfil">
+    <header class="nav-header">
+      <button class="icon-btn" data-back aria-label="Volver"><svg class="ico ico-20"><use href="#i-chevron-left"/></svg></button>
+      <h2 class="nav-title">Mi perfil</h2>
+      <span class="icon-btn" aria-hidden="true"></span>
+    </header>
+    <div class="scroll">
+      <div class="profile-card">
+        <div class="avatar"><svg class="ico ico-30"><use href="#i-user"/></svg></div>
+        <div class="profile-meta">
+          <p class="profile-name">María García</p>
+          <p class="profile-line">maria@gmail.com</p>
+          <p class="profile-line">+504 9876-5432</p>
+        </div>
+        <button class="btn-round" data-soon="Editar perfil" aria-label="Editar perfil"><svg class="ico ico-16"><use href="#i-pencil"/></svg></button>
+      </div>
+
+      <nav class="rows">
+        <button class="row" data-soon="Mis datos"><span class="row-tile"><svg class="ico ico-17"><use href="#i-user"/></svg></span>Mis datos<svg class="ico ico-15 row-chev"><use href="#i-chevron-right"/></svg></button>
+        <button class="row" data-soon="Direcciones"><span class="row-tile"><svg class="ico ico-17"><use href="#i-map-pin"/></svg></span>Direcciones<svg class="ico ico-15 row-chev"><use href="#i-chevron-right"/></svg></button>
+        <button class="row" data-soon="Métodos de pago"><span class="row-tile"><svg class="ico ico-17"><use href="#i-card"/></svg></span>Métodos de pago<svg class="ico ico-15 row-chev"><use href="#i-chevron-right"/></svg></button>
+        <button class="row" data-go="pedidos"><span class="row-tile"><svg class="ico ico-17"><use href="#i-clock"/></svg></span>Historial de compras<svg class="ico ico-15 row-chev"><use href="#i-chevron-right"/></svg></button>
+        <button class="row" data-soon="Notificaciones"><span class="row-tile"><svg class="ico ico-17"><use href="#i-bell"/></svg></span>Notificaciones<svg class="ico ico-15 row-chev"><use href="#i-chevron-right"/></svg></button>
+        <button class="row row-danger" id="btn-logout"><span class="row-tile"><svg class="ico ico-17"><use href="#i-logout"/></svg></span>Cerrar sesión</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ============ 6 · Nosotros ============ -->
+  <section class="screen" id="screen-nosotros" data-tab="nosotros">
+    <header class="nav-header">
+      <button class="icon-btn" data-back aria-label="Volver"><svg class="ico ico-20"><use href="#i-chevron-left"/></svg></button>
+      <h2 class="nav-title">Nosotros</h2>
+      <span class="icon-btn" aria-hidden="true"></span>
+    </header>
+    <div class="scroll">
+      <div class="brand-banner">
+        <span class="wordmark wordmark-lg">Artelier</span>
+        <span class="tagline">Crea · Diseña · Celebra</span>
+      </div>
+      <section class="block">
+        <h2 class="section-title">Nuestra empresa</h2>
+        <p class="body">Artelier es un taller creativo integral dedicado al diseño de manualidades escolares, proyectos artesanales personalizados y decoración estética para todo tipo de eventos sociales.</p>
+      </section>
+      <section class="block about-list">
+        <article class="about-item">
+          <h3>Misión</h3>
+          <p>Facilitar la vida escolar y familiar mediante la creación de manualidades, proyectos didácticos y decoraciones de eventos que transmitan belleza, emoción y originalidad.</p>
+        </article>
+        <article class="about-item">
+          <h3>Visión</h3>
+          <p>Ser a futuro una entidad creativa y papelería especializada, un referente en la zona, reconocida por la excelencia en el diseño artesanal y el servicio al cliente.</p>
+        </article>
+        <article class="about-item">
+          <h3>Valores</h3>
+          <p>Creatividad, Puntualidad, Calidad Detallista, Empatía y Sostenibilidad.</p>
+        </article>
+      </section>
+    </div>
+  </section>
+
+  <!-- ============ Tab bar ============ -->
+  <nav class="tabbar" id="tabbar">
+    <div class="side-brand">
+      <span class="wordmark">Artelier</span>
+      <span class="tagline">Crea · Diseña · Celebra</span>
+    </div>
+    <button class="tab is-active" data-go="inicio"><svg class="ico ico-22"><use href="#i-home"/></svg><span>Inicio</span></button>
+    <button class="tab" data-go="productos"><svg class="ico ico-22"><use href="#i-grid"/></svg><span>Productos</span></button>
+    <button class="tab tab-cart" data-go="carrito"><svg class="ico ico-22"><use href="#i-cart"/></svg><span class="badge" data-cart-badge hidden>0</span><span>Carrito</span></button>
+    <button class="tab" data-go="pedidos"><svg class="ico ico-22"><use href="#i-receipt"/></svg><span>Pedidos</span></button>
+    <button class="tab" data-go="perfil"><svg class="ico ico-22"><use href="#i-user"/></svg><span>Perfil</span></button>
+    <button class="tab tab-desk" data-go="nosotros"><svg class="ico ico-22"><use href="#i-info"/></svg><span>Nosotros</span></button>
+  </nav>
+
+  <!-- ============ Menú lateral ============ -->
+  <div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+  <aside class="drawer" id="drawer" hidden>
+    <div class="drawer-head">
+      <div class="brand">
+        <span class="wordmark">Artelier</span>
+        <span class="tagline">Crea · Diseña · Celebra</span>
+      </div>
+      <button class="icon-btn" id="btn-close-drawer" aria-label="Cerrar menú"><svg class="ico ico-20"><use href="#i-x"/></svg></button>
+    </div>
+    <nav class="rows">
+      <button class="row" data-go="inicio"><span class="row-tile"><svg class="ico ico-17"><use href="#i-home"/></svg></span>Inicio<svg class="ico ico-15 row-chev"><use href="#i-chevron-right"/></svg></button>
+      <button class="row" data-go="productos"><span class="row-tile"><svg class="ico ico-17"><use href="#i-grid"/></svg></span>Productos<svg class="ico ico-15 row-chev"><use href="#i-chevron-right"/></svg></button>
+      <button class="row" data-go="pedidos"><span class="row-tile"><svg class="ico ico-17"><use href="#i-receipt"/></svg></span>Mis pedidos<svg class="ico ico-15 row-chev"><use href="#i-chevron-right"/></svg></button>
+      <button class="row" data-go="perfil"><span class="row-tile"><svg class="ico ico-17"><use href="#i-user"/></svg></span>Mi perfil<svg class="ico ico-15 row-chev"><use href="#i-chevron-right"/></svg></button>
+      <button class="row" data-go="nosotros"><span class="row-tile"><svg class="ico ico-17"><use href="#i-info"/></svg></span>Nosotros<svg class="ico ico-15 row-chev"><use href="#i-chevron-right"/></svg></button>
+    </nav>
+  </aside>
+
+  <!-- ============ Hoja de acciones del carrito ============ -->
+  <div class="sheet-backdrop" id="sheet-backdrop" hidden></div>
+  <div class="sheet" id="sheet" hidden>
+    <div class="sheet-handle"></div>
+    <p class="sheet-title" id="sheet-title"></p>
+    <button class="sheet-action" id="sheet-remove"><svg class="ico ico-17"><use href="#i-trash"/></svg> Eliminar del carrito</button>
+    <button class="sheet-action" id="sheet-cancel">Cancelar</button>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
