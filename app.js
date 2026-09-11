@@ -78,10 +78,10 @@ const state = {
     { pid:'taza',     size:'Con nombre',  price:180, qty:1 },
   ],
   orders: [
-    { id:1024, date:'20 de mayo, 2024', status:'Entregado',      total:650,  icon:'i-graduation' },
-    { id:1023, date:'15 de mayo, 2024', status:'En camino',      total:1200, icon:'i-gift' },
-    { id:1022, date:'10 de mayo, 2024', status:'En preparación', total:350,  icon:'i-notebook' },
-    { id:1021, date:'5 de mayo, 2024',  status:'Recibido',       total:180,  icon:'i-bag' },
+    { id:1024, date:'20 de mayo, 2024', status:'Entregado',      total:650,  pid:'maqueta' },
+    { id:1023, date:'15 de mayo, 2024', status:'En camino',      total:1200, pid:'cumple' },
+    { id:1022, date:'10 de mayo, 2024', status:'En preparación', total:350,  pid:'trifolio' },
+    { id:1021, date:'5 de mayo, 2024',  status:'Recibido',       total:180,  pid:'taza' },
   ],
   product: null,     // producto abierto
   sizeIndex: 0,
@@ -272,9 +272,11 @@ function updateBadge(){
 
 /* ----------------------------- pedidos ----------------------------- */
 function renderOrders(){
-  $('#order-list').innerHTML = state.orders.map(o => `
+  $('#order-list').innerHTML = state.orders.map(o => {
+    const p = productById(o.pid);
+    return `
     <button class="order" data-order="${o.id}">
-      <span class="photo">${svg(o.icon, '')}</span>
+      ${photo(p.id, p.icon)}
       <span class="order-meta">
         <span class="order-id">Pedido #${o.id}</span>
         <span class="order-line">
@@ -284,7 +286,8 @@ function renderOrders(){
         <span class="order-total">${money(o.total)}</span>
       </span>
       ${svg('i-chevron-right','ico-16 row-chev')}
-    </button>`).join('');
+    </button>`;
+  }).join('');
 }
 
 /* ----------------------------- overlays ----------------------------- */
@@ -397,7 +400,7 @@ $('#btn-checkout').addEventListener('click', () => {
   const total = subtotal(state.cart) + SHIPPING;
   const id = Math.max(...state.orders.map(o => o.id)) + 1;
   state.orders.unshift({
-    id, total, status:'Recibido', icon:productById(state.cart[0].pid).icon,
+    id, total, status:'Recibido', pid:state.cart[0].pid,
     date:new Date().toLocaleDateString('es-HN', { day:'numeric', month:'long' }) + ', ' + new Date().getFullYear(),
   });
   state.cart = [];
