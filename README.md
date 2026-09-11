@@ -54,10 +54,11 @@ la categoría — así que para agregar o cambiar una foto basta con dejar el ar
 |---|---|
 | `assets/logo.jpg` | cabecera, menú, barra lateral y portada de Nosotros |
 | `assets/hero-1.jpg` | primer slide del carrusel |
-| `assets/maqueta.jpg` · `cumple.jpg` · `trifolio.jpg` · `taza.jpg` | productos destacados, catálogo, ficha y carrito |
+| `assets/maqueta.jpg` · `cumple.jpg` · `trifolio.jpg` · `taza.jpg` | productos destacados, catálogo, ficha, carrito y pedidos |
 
 Los productos sin foto propia (`album`, `invitaciones`, `centro`, `rotulos`) usan el
-placeholder a propósito.
+placeholder a propósito. Las fotos se muestran con `object-fit: contain`, de modo que
+se ven completas dentro de su marco aunque no coincida la proporción.
 
 ## Notas de implementación
 
