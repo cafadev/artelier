@@ -56,9 +56,9 @@ const PRODUCTS = [
 ];
 
 const SLIDES = [
-  { title:'Ideas que dan vida a tus momentos', sub:'Manualidades · Papelería<br>Decoración de eventos', icon:'i-gift',        go:null },
-  { title:'Decoración que celebra cada evento', sub:'Cumpleaños · Bodas<br>Graduaciones',                icon:'i-scissors',    go:'eventos' },
-  { title:'Papelería con tu estilo personal',   sub:'Invitaciones · Trifolios<br>Etiquetas',             icon:'i-notebook',    go:'papeleria' },
+  { title:'Ideas que dan vida a tus momentos', sub:'Manualidades · Papelería<br>Decoración de eventos', icon:'i-gift',     img:'hero-1',  go:null },
+  { title:'Decoración que celebra cada evento', sub:'Cumpleaños · Bodas<br>Graduaciones',                icon:'i-scissors', img:'cumple',  go:'eventos' },
+  { title:'Papelería con tu estilo personal',   sub:'Invitaciones · Trifolios<br>Etiquetas',             icon:'i-notebook', img:'trifolio',go:'papeleria' },
 ];
 
 const SHIPPING = 50;
@@ -98,6 +98,11 @@ const $  = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 const money = n => 'L.' + n.toLocaleString('en-US', { minimumFractionDigits:2, maximumFractionDigits:2 });
 const svg = (icon, cls) => `<svg class="ico ${cls}"><use href="#${icon}"/></svg>`;
+/* Placeholder + intento de foto real: si assets/<slug>.jpg no existe, el <img> se
+   descarta solo y queda el degradado con el icono. Ver README → "Imágenes reales". */
+const photo = (slug, icon, icoCls = '', cls = '', id = '') =>
+  `<span ${id ? `id="${id}" ` : ''}class="photo ${cls}">${svg(icon, icoCls)}` +
+  `<img src="assets/${slug}.jpg" alt="" loading="lazy" onerror="this.remove()"></span>`;
 const productById = id => PRODUCTS.find(p => p.id === id);
 const subtotal = cart => cart.reduce((sum, it) => sum + it.price * it.qty, 0);
 const cartCount = cart => cart.reduce((sum, it) => sum + it.qty, 0);
@@ -146,7 +151,7 @@ function renderSlide(){
   const s = SLIDES[state.slide];
   $('.hero-title').innerHTML = s.title;
   $('.hero-sub').innerHTML = s.sub;
-  $('#hero .hero-photo').innerHTML = svg(s.icon, 'ico-40');
+  $('#hero .hero-photo').outerHTML = photo(s.img, s.icon, 'ico-40', 'hero-photo');
   $('#hero-dots').innerHTML = SLIDES
     .map((_, i) => `<button class="dot ${i === state.slide ? 'is-active' : ''}" data-slide="${i}" aria-label="Slide ${i+1}"></button>`)
     .join('');
@@ -161,7 +166,7 @@ function renderHome(){
 
   $('#prod-row').innerHTML = PRODUCTS.filter(p => p.featured).map(p => `
     <button class="card" data-product="${p.id}">
-      <span class="photo">${svg(p.icon, 'ico-25')}</span>
+      ${photo(p.id, p.icon, 'ico-25')}
       <span class="card-name">${p.short}</span>
       <span class="card-price">Desde ${money(p.sizes[0].price).replace('.00','')}</span>
     </button>`).join('');
@@ -184,7 +189,7 @@ function renderCatalog(){
 
   $('#catalog-grid').innerHTML = list.map(p => `
     <button class="card" data-product="${p.id}">
-      <span class="photo">${svg(p.icon, 'ico-40')}</span>
+      ${photo(p.id, p.icon, 'ico-40')}
       <span class="card-name">${p.name}</span>
       <span class="card-price">Desde ${money(p.sizes[0].price).replace('.00','')}</span>
     </button>`).join('');
@@ -207,7 +212,7 @@ function openProduct(id){
 
 function renderProduct(){
   const p = state.product;
-  $('#gallery-photo').innerHTML = svg(p.icon, 'ico-64');
+  $('#gallery-photo').outerHTML = photo(p.id, p.icon, 'ico-64', 'gallery-photo', 'gallery-photo');
   $('#product-title').textContent = p.name;
   $('#product-price').textContent = money(p.sizes[state.sizeIndex].price);
   $('#product-stars').innerHTML = [0,1,2,3,4]
@@ -233,7 +238,7 @@ function renderCart(){
     const p = productById(it.pid);
     return `
     <div class="cart-item">
-      <span class="photo">${svg(p.icon, '')}</span>
+      ${photo(p.id, p.icon)}
       <div class="cart-meta">
         <p class="cart-name">${p.name}</p>
         <p class="cart-variant">${it.size}</p>

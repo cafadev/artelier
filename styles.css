@@ -26,7 +26,6 @@
   /* tipografía */
   --font-body:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
   --font-caps:"Montserrat",system-ui,sans-serif;
-  --font-script:"Parisienne",cursive;
 
   /* radios */
   --r-sm:10px; --r-md:14px; --r-lg:18px; --r-pill:999px;
@@ -88,8 +87,9 @@ h1,h2,h3,p{margin:0}
 }
 .icon-btn:hover{background:var(--bg-blush)}
 .brand{display:flex;flex-direction:column;align-items:center;gap:2px}
-.wordmark{font-family:var(--font-script);font-size:32px;line-height:1.15;color:var(--brand-crimson)}
-.wordmark-lg{font-size:46px}
+/* el JPG del logo trae fondo blanco: multiply lo funde con los fondos claros de la app */
+.logo{display:block;height:38px;width:auto;mix-blend-mode:multiply}
+.logo-lg{height:72px}
 .tagline{
   font-family:var(--font-caps);font-weight:500;font-size:8px;line-height:12px;
   letter-spacing:.22em;text-transform:uppercase;color:var(--text-secondary);
@@ -145,12 +145,14 @@ h1,h2,h3,p{margin:0}
   position:absolute;right:5px;top:19px;width:149px;height:132px;border-radius:var(--r-md);
 }
 .photo{
+  position:relative;overflow:hidden;
   display:grid;place-items:center;color:var(--brand-rose);opacity:1;
   background:
     radial-gradient(circle at 30% 25%,rgba(255,255,255,.85),transparent 55%),
     linear-gradient(145deg,var(--bg-pink-soft),#f3c9d5);
 }
 .photo .ico{opacity:.55;stroke-width:1.2}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
 .dots{display:flex;justify-content:center;gap:5px;margin-top:10px}
 .dot{width:6px;height:6px;border-radius:var(--r-pill);background:var(--bg-pink-soft);border:0;padding:0;transition:width .2s,background .2s}
@@ -433,11 +435,11 @@ h1,h2,h3,p{margin:0}
   .search input{font-size:12px}
 
   .hero{height:220px}
-  .hero-copy{width:54%;padding:28px 0 28px 32px}
+  .hero-copy{width:50%;padding:28px 0 28px 32px}
   .hero-title{font-size:22px;line-height:32px}
   .hero-sub{font-size:13px;line-height:19px}
   .btn-pill{height:36px;padding:0 22px;font-size:13px}
-  .hero-photo{width:38%;height:calc(100% - 38px);right:19px;top:19px}
+  .hero-photo{width:40%;height:calc(100% - 38px);right:19px;top:19px}
   .hero-photo .ico{width:56px;height:56px}
 
   .cat-tile{width:78px;height:74px}
@@ -466,7 +468,7 @@ h1,h2,h3,p{margin:0}
     padding:24px 14px;border-top:0;border-right:1px solid var(--border-subtle);
   }
   .side-brand{display:flex;flex-direction:column;padding:4px 12px 26px}
-  .side-brand .wordmark{font-size:34px}
+  .side-brand .logo{height:46px}
   .tab{
     flex-direction:row;justify-content:flex-start;gap:12px;
     height:48px;padding:0 14px;border-radius:var(--r-md);
