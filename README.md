@@ -56,9 +56,9 @@ la categoría — así que para agregar o cambiar una foto basta con dejar el ar
 | `assets/hero-1.jpg` | primer slide del carrusel |
 | `assets/maqueta.jpg` · `cumple.jpg` · `trifolio.jpg` · `taza.jpg` | productos destacados, catálogo, ficha, carrito y pedidos |
 
-Los productos sin foto propia (`album`, `invitaciones`, `centro`, `rotulos`) usan el
-placeholder a propósito. Las fotos se muestran con `object-fit: contain`, de modo que
-se ven completas dentro de su marco aunque no coincida la proporción.
+Los cuatro productos del catálogo tienen su foto. Se muestran con `object-fit: contain`,
+para que se vean completas dentro de su marco aunque no coincida la proporción, y con
+`mix-blend-mode: darken`, que funde el fondo blanco del JPG con el degradado del marco.
 
 ## Notas de implementación
 

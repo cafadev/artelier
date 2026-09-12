@@ -33,26 +33,6 @@ const PRODUCTS = [
     rating:5, reviews:18, featured:true,
     desc:'Taza de cerámica sublimada con nombre, foto o frase. Acabado brillante y resistente al lavado frecuente.',
     sizes:[{label:'Con nombre',price:180},{label:'Con foto',price:220},{label:'Set x2',price:340}] },
-
-  { id:'album', name:'Álbum scrapbook', short:'Álbum scrapbook', cat:'manualidades', icon:'i-scissors',
-    rating:5, reviews:9,
-    desc:'Álbum artesanal hecho a mano con papeles decorativos, bolsillos y espacios para dedicatorias.',
-    sizes:[{label:'10 hojas',price:450},{label:'20 hojas',price:720},{label:'30 hojas',price:980}] },
-
-  { id:'invitaciones', name:'Invitaciones personalizadas', short:'Invitaciones', cat:'papeleria', icon:'i-notebook',
-    rating:5, reviews:40,
-    desc:'Invitaciones diseñadas a medida para bodas, quinceaños o cumpleaños, con impresión en papel de alto gramaje.',
-    sizes:[{label:'Pack 10',price:250},{label:'Pack 25',price:560},{label:'Pack 50',price:990}] },
-
-  { id:'centro', name:'Centro de mesa artesanal', short:'Centros de mesa', cat:'eventos', icon:'i-gift',
-    rating:4, reviews:14,
-    desc:'Centros de mesa elaborados con flores preservadas y bases decoradas a mano, coordinados con tu evento.',
-    sizes:[{label:'Pequeño',price:320},{label:'Mediano',price:480},{label:'Grande',price:650}] },
-
-  { id:'rotulos', name:'Rótulos escolares', short:'Rótulos escolares', cat:'escolares', icon:'i-graduation',
-    rating:4, reviews:7,
-    desc:'Rótulos y carteles escolares rotulados a mano, con tipografía clara y materiales resistentes.',
-    sizes:[{label:'Carta',price:90},{label:'Tabloide',price:140},{label:'Pliego',price:210}] },
 ];
 
 const SLIDES = [
